@@ -1,10 +1,10 @@
 import java.util.*;
 
-class Student{
+class Student2{
     private int id;
     private String fname;
     private double cgpa;
-    public Student(int id, String fname, double cgpa) {
+    public Student2(int id, String fname, double cgpa) {
         super();
         this.id = id;
         this.fname = fname;
@@ -21,9 +21,9 @@ class Student{
     }
 }
 
-class Checker2 implements Comparator<Student> {
+class Checker2 implements Comparator<Student2> {
     @Override
-    public int compare(Student o1, Student o2) {
+    public int compare(Student2 o1, Student2 o2) {
         Double cgpaO1 = o1.getCgpa();
         Double cgpaO2 = o2.getCgpa();
         int result = cgpaO2.compareTo(cgpaO1);
@@ -41,13 +41,13 @@ public class JavaSort
         Scanner in = new Scanner(System.in);
         int testCases = Integer.parseInt(in.nextLine());
 
-        List<Student> studentList = new ArrayList<Student>();
+        List<Student2> studentList = new ArrayList<Student2>();
         while(testCases>0){
             int id = in.nextInt();
             String fname = in.next();
             double cgpa = in.nextDouble();
 
-            Student st = new Student(id, fname, cgpa);
+            Student2 st = new Student2(id, fname, cgpa);
             studentList.add(st);
 
             testCases--;
@@ -55,7 +55,7 @@ public class JavaSort
 
         Collections.sort(studentList, new Checker2());
 
-        for(Student st: studentList){
+        for(Student2 st: studentList){
             System.out.println(st.getFname());
         }
     }
